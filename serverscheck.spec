@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['serverscheck.py'],
-             pathex=['C:\\Users\\Administrator\\Python36-32\\learn'],
+             pathex=['Q:\\pythonlearn'],
              binaries=[],
              datas=[],
              hiddenimports=[],
