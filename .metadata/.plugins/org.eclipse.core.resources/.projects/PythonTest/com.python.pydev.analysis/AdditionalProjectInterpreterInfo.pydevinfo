@@ -1,12 +1,30 @@
 -- VERSION_4
 -- START DISKCACHE_2
 Q:\pythonlearn\.metadata\.plugins\org.eclipse.core.resources\.projects\PythonTest\com.python.pydev.analysis\v2_indexcache
+wiki|1498123653757836000|Q:\pythonlearn\PythonTest\wiki.py
+PostTest|1498098471189401000|Q:\pythonlearn\PythonTest\PostTest.py
+BeautifulsoupTest|1498114922228566000|Q:\pythonlearn\PythonTest\BeautifulsoupTest.py
+spider1|1498095194452381000|Q:\pythonlearn\PythonTest\spider1.py
+mysqlTest|1498190434767976000|Q:\pythonlearn\PythonTest\mysqlTest.py
 -- END DISKCACHE
 -- START DICTIONARY
-0
+5
+3=wiki
+4=PostTest
+2=BeautifulsoupTest
+5=spider1
+1=mysqlTest
 -- END DICTIONARY
 -- START TREE 1
-0
+8
+con|1|connection!11@
+dat|2|data!19@data!27@
+htm|1|html_doc!19@
+pos|1|PostData!35@
+req|2|req!35@req!43@
+res|3|resp!35@resp!27@resp!43@
+sou|2|soup!27@soup!19@
+sql|1|sql!11@
 -- END TREE
 -- START TREE 2
 0

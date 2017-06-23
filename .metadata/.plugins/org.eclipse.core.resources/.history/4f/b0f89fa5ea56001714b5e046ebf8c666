@@ -1,0 +1,8 @@
+# -*- coding:utf-8 -*-  
+from urllib import request
+from idlelib.rpc import response_queue
+
+req = request.Request("")
+req.add_header("User-Agent", "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36")
+resp = request.urlopen("http://www.baidu.com")
+print(resp.read().decode('utf-8'))

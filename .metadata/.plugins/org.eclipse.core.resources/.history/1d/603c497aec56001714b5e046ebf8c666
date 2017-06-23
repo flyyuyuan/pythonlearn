@@ -1,0 +1,16 @@
+# -*- coding:utf-8 -*-  
+from urllib import request
+from urllib import parse
+from test.test_cgi import POSTDATA
+from aifc import data
+
+req = request.Request("http://www.baidu.com")
+req.add_header("User-Agent", "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36")
+
+PostData = parse.urlencode([
+    (),
+    ()
+    ])
+
+resp = request.urlopen(req,data = )
+print(resp.read().decode('utf-8'))
