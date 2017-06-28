@@ -6,7 +6,7 @@ from pdfminer.layout import LAParams
 from pdfminer.pdfdevice import PDFDevice
 from urllib.request import urlopen
 
-#获取文档对象
+#获取文档对象 二进制读取
 fp = open("simple1.pdf","rb");
 #fp= urlopen("http://www.tencent.com/zh-cn/articles/8003251479983154.pdf").read().decode("utf-8")
 
