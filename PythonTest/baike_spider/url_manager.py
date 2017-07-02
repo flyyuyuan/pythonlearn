@@ -1,6 +1,6 @@
 class UrlManager(object):
 
-    def __init__(slef):
+    def __init__(self):
         self.new_urls = set()
         self.old_urls = set()
 
@@ -13,7 +13,7 @@ class UrlManager(object):
             self.new_urls.add(url)
     #批量添加新的url
     def add_new_urls(self,urls):
-        if urls is none or len(urls)==0:
+        if urls is None or len(urls)==0:
             return
         for url in urls:
             self.add_new_url(url)

@@ -1,12 +1,7 @@
-from baike_spider import url_manager
-from baike_spider import html_downloader
-from baike_spider import html_parser
-from baike_spider import html_outputer
-
-if __name__ = "mian"
-    root_url = 'http://baike.baidu.com/item/Python
-    obj_spider = SpiderMain()
-    obj_spider.craw(root_url)
+import url_manager
+import html_downloader
+import html_parser
+import html_outputer
 
 class SpiderMain(object):
     def __init__(self):
@@ -31,12 +26,12 @@ class SpiderMain(object):
                 print('craw %d:%s'%(count,new_url))
 
                 #下载页面数据
-                html_count = self.downloader.download(new_url)
+                html_cont = self.downloader.download(new_url)
 
                 #解析页面，获得数据和新的相关url
-                new_urls,new_data = self.parser.parse(new_url,html_count)
+                new_urls,new_data = self.parser.parse(new_url,html_cont)
 
-                #将新的相关url补充至url管理器；并进行数据的收集
+                #将新的相关urls补充至url管理器；并进行数据的收集
                 self.urls.add_new_urls(new_urls)
                 self.outputer.collect_data(new_data)
 
@@ -49,4 +44,11 @@ class SpiderMain(object):
                 print ('craw failed...')
         #输出爬取的所有数据
         self.outputer.output_html()
+
+if __name__ == "__main__":
+    root_url = 'http://baike.baidu.com/item/Python'
+    obj_spider = SpiderMain()
+    obj_spider.craw(root_url)
+
+
             
