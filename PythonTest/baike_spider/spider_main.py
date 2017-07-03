@@ -2,6 +2,7 @@ import url_manager
 import html_downloader
 import html_parser
 import html_outputer
+import img_downloader
 
 class SpiderMain(object):
     def __init__(self):
@@ -9,6 +10,7 @@ class SpiderMain(object):
         self.downloader = html_downloader.HtmlDownloader()
         self.parser = html_parser.HtmlParse()
         self.outputer = html_outputer.HtmlOutputer()
+        self.imgdownloader = img_downloader.ImgDownloader()
 
         
     def craw(self,root_url):
@@ -18,7 +20,7 @@ class SpiderMain(object):
         self.urls.add_new_url(root_url)
 
         #若有待爬取的url
-        while self.urls.has_new_url():
+        while self.urls.has_new_url():  
 
             #获取需要爬取的url
             try:
@@ -29,14 +31,17 @@ class SpiderMain(object):
                 html_cont = self.downloader.download(new_url)
 
                 #解析页面，获得数据和新的相关url
-                new_urls,new_data = self.parser.parse(new_url,html_cont)
-
+                new_urls,new_data,pic_url = self.parser.parse(new_url,html_cont)
+                #print(pic_url)
+                #pic
+                self.imgdownloader.getImg(pic_url)
                 #将新的相关urls补充至url管理器；并进行数据的收集
                 self.urls.add_new_urls(new_urls)
                 self.outputer.collect_data(new_data)
+                
 
                 #默认爬取url限制
-                if count ==1000:
+                if count ==5:
                     break;
 
                 count = count+1
