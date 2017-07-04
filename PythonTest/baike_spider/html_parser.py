@@ -23,12 +23,16 @@ class HtmlParse(object):
 		
         summary_node = soup.find('div',class_='lemma-summary')
         res_data['summary'] = summary_node.get_text()
+
+        #links = soup.find_all('a',attrs={'target':'_blank'},href=re.compile(r'/item/\w+/\d+')) 
+        pic_node = soup.find('div',class_='summary-pic').find('img')
+        res_data['pic_url'] = pic_node.get('src')
 		
         return res_data
 	
 	#获取图片
     def _get_summary_pic(self,page_url,soup):
-		#links = soup.find_all('a',attrs={'target':'_blank'},href=re.compile(r'/item/\w+/\d+')) 
+	#links = soup.find_all('a',attrs={'target':'_blank'},href=re.compile(r'/item/\w+/\d+')) 
         pic_node = soup.find('div',class_='summary-pic').find('img')
         pic_url = pic_node.get('src')
 		
@@ -41,5 +45,4 @@ class HtmlParse(object):
         soup = BeautifulSoup(html_cont, "html.parser")
         new_urls = self._get_new_urls(page_url,soup)
         new_data = self._get_new_data(page_url,soup)
-        pic_url = self._get_summary_pic(page_url,soup)
-        return new_urls,new_data,pic_url
+        return new_urls,new_data
