@@ -4,10 +4,20 @@ import html_downloader
 import html_parser
 import html_outputer
 import img_downloader
+import pymysql.cursors
 
 class SpiderMain(object):
-    def __init__(self):
-        self.urls = url_manager.UrlManager()
+
+    def __init__(self,config):
+        self.config = config;
+        #获取数据库连接字符串
+        connection = pymysql.connect(host=config.get('db', 'host'),
+                                     user=config.get('db', 'user'),
+                                     password=config.get('db', 'password'),
+                                     db = config.get('db', 'db'),
+                                     charset=config.get('db', 'charset'))
+        
+        self.urls = url_manager.UrlManager(connection,config.get('db', 'isuse'))
         self.downloader = html_downloader.HtmlDownloader()
         self.parser = html_parser.HtmlParse()
         self.outputer = html_outputer.HtmlOutputer()
@@ -47,18 +57,22 @@ class SpiderMain(object):
                 count = count+1
             except:
                 print ('craw failed...')
+                connection.close()
+                
         #输出爬取的所有数据
         self.outputer.output_html()
 
 if __name__ == "__main__":
+    
     config=configparser.ConfigParser()
     config.read("spiderconfig.conf")
     
     root_url = config.get('root_url', 'url')
     max_num = config.get('root_url', 'maxnum') 
     #print ('host of ssh:', max_num)
+
     
-    obj_spider = SpiderMain()
+    obj_spider = SpiderMain(config)
     obj_spider.craw(root_url,max_num)
     
     #print ('all sections:', config.sections())        # sections: ['db', 'ssh']
