@@ -8,10 +8,10 @@ import pymysql.cursors
 
 class SpiderMain(object):
 
-    def __init__(self,config,connection):
+    def __init__(self,connection,isuse):
         self.config = config;       
         self.connection = connection;
-        self.urls = url_manager.UrlManager(connection,config.get('db', 'isuse'))
+        self.urls = url_manager.UrlManager(connection,isuse)
         self.downloader = html_downloader.HtmlDownloader()
         self.parser = html_parser.HtmlParse()
         self.outputer = html_outputer.HtmlOutputer()
@@ -71,7 +71,7 @@ if __name__ == "__main__":
                                  password=config.get('db', 'password'),
                                  db = config.get('db', 'db'),
                                  charset=config.get('db', 'charset'))
-    obj_spider = SpiderMain(config,connection)
+    obj_spider = SpiderMain(config.get('db', 'isuse'),connection)
     obj_spider.craw(root_url,max_num)
     
     #print ('all sections:', config.sections())        # sections: ['db', 'ssh']
