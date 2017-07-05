@@ -17,6 +17,7 @@ try:
         #查询光标当前下一条条数据；再执行一次就是第二条
         result1 = cursor.fetchone()
         print(result1)
+        print(result1[0])
         
         #查询前2条数据
         result1 = cursor.fetchmany(size=2)

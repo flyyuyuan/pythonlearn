@@ -8,15 +8,9 @@ import pymysql.cursors
 
 class SpiderMain(object):
 
-    def __init__(self,config):
-        self.config = config;
-        #获取数据库连接字符串
-        connection = pymysql.connect(host=config.get('db', 'host'),
-                                     user=config.get('db', 'user'),
-                                     password=config.get('db', 'password'),
-                                     db = config.get('db', 'db'),
-                                     charset=config.get('db', 'charset'))
-        
+    def __init__(self,config,connection):
+        self.config = config;       
+        self.connection = connection;
         self.urls = url_manager.UrlManager(connection,config.get('db', 'isuse'))
         self.downloader = html_downloader.HtmlDownloader()
         self.parser = html_parser.HtmlParse()
@@ -57,7 +51,7 @@ class SpiderMain(object):
                 count = count+1
             except:
                 print ('craw failed...')
-                connection.close()
+                self.connection.close()
                 
         #输出爬取的所有数据
         self.outputer.output_html()
@@ -71,8 +65,13 @@ if __name__ == "__main__":
     max_num = config.get('root_url', 'maxnum') 
     #print ('host of ssh:', max_num)
 
-    
-    obj_spider = SpiderMain(config)
+    #获取数据库连接字符串
+    connection = pymysql.connect(host=config.get('db', 'host'),
+                                 user=config.get('db', 'user'),
+                                 password=config.get('db', 'password'),
+                                 db = config.get('db', 'db'),
+                                 charset=config.get('db', 'charset'))
+    obj_spider = SpiderMain(config,connection)
     obj_spider.craw(root_url,max_num)
     
     #print ('all sections:', config.sections())        # sections: ['db', 'ssh']
