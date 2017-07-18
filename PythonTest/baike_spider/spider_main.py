@@ -8,7 +8,7 @@ import pymysql.cursors
 
 class SpiderMain(object):
 
-    def __init__(self,connection,isuse):
+    def __init__(self,isuse,connection):
         self.config = config;       
         self.connection = connection;
         self.urls = url_manager.UrlManager(connection,isuse)
@@ -71,6 +71,11 @@ if __name__ == "__main__":
                                  password=config.get('db', 'password'),
                                  db = config.get('db', 'db'),
                                  charset=config.get('db', 'charset'))
+    connection1 = pymysql.connect(host='127.0.0.1',
+                                 user='root',
+                                 password='root',
+                                 db='wikiurl',
+                                 charset='utf8mb4')
     obj_spider = SpiderMain(config.get('db', 'isuse'),connection)
     obj_spider.craw(root_url,max_num)
     
