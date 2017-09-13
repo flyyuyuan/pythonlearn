@@ -7,7 +7,7 @@ print(os.system('ipconfig'))
 start_Time=int(time.time())
 ip_True = open('ip_True.txt','w+')
 ip_False = open('ip_False.txt','w+')
-IPhost = ['192.168.1.1','192.168.1.2']
+IPhost = ['192.168.1.100','192.168.1.2']
 count_True,count_False = 0,0
 for i in IPhost:
     return1=os.system('ping -n 1 -w 1 %s'%i)
