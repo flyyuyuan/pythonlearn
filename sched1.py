@@ -22,10 +22,13 @@ def execute_command(cmd, inc):
 def main(cmd, inc=60):
     # enter四个参数分别为：间隔事件、优先级（用于同时间到达的两个事件同时执行时定序）、被调用触发的函数，
     # 给该触发函数的参数（tuple形式）
-    schedule.enter(0, 0, execute_command, (cmd, inc))
-    schedule.run()
+    print(os.system("ping 192.168.10.201"))
+    #t_f = os.popen("ping 192.168.10.201")
+    #print (t_f.read())
+    #schedule.enter(0, 0, execute_command, (cmd, inc))
+    #schedule.run()
 
 
 # 每60秒查看下网络连接情况
 if __name__ == '__main__':
-    main("netstat -an", 60)
+    main("netstat -an", 5)

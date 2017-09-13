@@ -3,27 +3,29 @@ from scrapy.selector import HtmlXPathSelector
 from tutorial.items import DmozItem
 
 class DmozSpider(BaseSpider):
-    name = "dmoz"
+    name = "dmoz"#spider的名字
     allowed_domains = ["dmoz.org"]
     start_urls = [
-        "http://localhost:8008/index.html",
-        "http://localhost:8008/index.aspx"
-]    
+        "http://localhost:8008/index.html"
+        #"http://localhost:8008/index.aspx"
+    ]    #待抓取的列表
   
     def parse(self, response):
+        self.log("Fetch localhost homepage page: %s" % response.url)
         hxs = HtmlXPathSelector(response)
         sites = hxs.select('//div[contains(@class, "article-item clearfix")]')
         #sites = hxs.path('//ul/li')
+        print("~~~~~~~",len(sites));
         items=[]
         for site in sites:
             item = DmozItem()
-            item['title'] = site.select('div[contains(@class, "article-item-title")]/a/text()').extract()[0].encode('utf-8')
+            item['title'] = site.select('div[contains(@class, "article-item-title")]/a/text()').extract()[0]
             if len(site.select('div[contains(@class, "article-item-title")]/a/span/text()').extract())>0:
-                item['title']+=site.select('div[contains(@class, "article-item-title")]/a/span/text()').extract()[0].encode('utf-8')
+                item['title']+=site.select('div[contains(@class, "article-item-title")]/a/span/text()').extract()[0]
             
             item['link'] = site.select('div[contains(@class, "article-item-title")]/a/@href').extract()[0]
-            item['desc'] = site.select('div[contains(@class, "content-warp")]/p/text()').extract()+site.select('div[contains(@class, "content-warp")]/p/span/text()').extract()
-            #print title, link, desc
+            #item['desc'] = site.select('div[contains(@class, "content-warp")]/p/text()').extract()+site.select('div[contains(@class, "content-warp")]/p/span/text()').extract()
+            item['content'] = "++"+"".join(site.select('div[contains(@class, "content-warp")]/p/text()').extract())+"++"
             items.append(item)
-            print (item['title'], item['link'])
+            #print ("====++====",item['title'], item['link'], item['desc'])
         return items

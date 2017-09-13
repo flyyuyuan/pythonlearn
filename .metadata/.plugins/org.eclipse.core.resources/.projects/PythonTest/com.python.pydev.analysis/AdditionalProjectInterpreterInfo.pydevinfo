@@ -1,30 +1,61 @@
 -- VERSION_4
 -- START DISKCACHE_2
 Q:\pythonlearn\.metadata\.plugins\org.eclipse.core.resources\.projects\PythonTest\com.python.pydev.analysis\v2_indexcache
+ReTest|1498728506700734000|Q:\pythonlearn\PythonTest\ReTest.py
+readmysql|1499226602410214000|Q:\pythonlearn\PythonTest\readmysql.py
 wiki|1498123653757836000|Q:\pythonlearn\PythonTest\wiki.py
+readpdf|1498621393624329000|Q:\pythonlearn\PythonTest\readpdf.py
 PostTest|1498098471189401000|Q:\pythonlearn\PythonTest\PostTest.py
-BeautifulsoupTest|1498114922228566000|Q:\pythonlearn\PythonTest\BeautifulsoupTest.py
+readtext|1498619261962239000|Q:\pythonlearn\PythonTest\readtext.py
+urllibTest|1499140394704875000|Q:\pythonlearn\PythonTest\urllibTest.py
+BeautifulsoupTest|1499140394695868000|Q:\pythonlearn\PythonTest\BeautifulsoupTest.py
+imgcatch|1498738827833701000|Q:\pythonlearn\PythonTest\imgcatch.py
 spider1|1498095194452381000|Q:\pythonlearn\PythonTest\spider1.py
 mysqlTest|1498190434767976000|Q:\pythonlearn\PythonTest\mysqlTest.py
 -- END DISKCACHE
 -- START DICTIONARY
-5
-3=wiki
-4=PostTest
-2=BeautifulsoupTest
-5=spider1
-1=mysqlTest
+11
+1=ReTest
+4=readmysql
+7=wiki
+8=readpdf
+3=urllibTest
+9=PostTest
+11=readtext
+6=BeautifulsoupTest
+2=imgcatch
+10=spider1
+5=mysqlTest
 -- END DICTIONARY
 -- START TREE 1
-8
-con|1|connection!11@
-dat|2|data!19@data!27@
-htm|1|html_doc!19@
-pos|1|PostData!35@
-req|2|req!35@req!43@
-res|3|resp!35@resp!27@resp!43@
-sou|2|soup!27@soup!19@
-sql|1|sql!11@
+27
+add|1|add1!10@
+buf|1|buf!19@
+cj|1|cj!27@
+con|2|connection!35@connection!43@
+cou|1|count!35@
+dat|2|data!51@data!59@
+dev|1|device!67@
+doc|1|doc!67@
+f|1|f!19@
+fp|1|fp!67@
+htm|1|html_doc!51@
+inf|2|info!11@info1!11@
+int|1|interpreter!67@
+lap|1|laparam!67@
+lay|1|layout!67@
+lin|1|link_node!51@
+lis|1|listurl!19@
+ope|1|opener!27@
+p_n|1|p_node!51@
+par|1|parser!67@
+pos|1|PostData!75@
+req|4|req!75@req!83@req!19@req!27@
+res|11|resp!19@result!35@resource!67@response1!27@response2!27@resp!75@resp!91@result1!35@resp!59@response3!27@resp!83@
+sou|2|soup!59@soup!51@
+sql|2|sql!43@sql!35@
+str|3|str2!11@str4!11@str3!11@
+url|1|url!27@
 -- END TREE
 -- START TREE 2
 0

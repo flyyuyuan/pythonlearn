@@ -20,7 +20,7 @@ def ip_ping():
     start_Time=int(time.time())
     ip_True = open('ip_True.txt','w+')
     ip_False = open('ip_False.txt','w+')
-    IPhost = ['192.168.31.189','192.168.31.162']
+    IPhost = ['192.168.10.201','192.168.31.162']#59.175.146.61
     IPhosterror=[]
     count_True,count_False = 0,0
     for i in IPhost:

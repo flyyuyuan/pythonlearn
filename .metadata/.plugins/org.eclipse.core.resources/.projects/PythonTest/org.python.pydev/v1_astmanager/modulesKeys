@@ -1,6 +1,12 @@
 MODULES_MANAGER_V2
 BeautifulsoupTest|Q:\pythonlearn\PythonTest\BeautifulsoupTest.py
 PostTest|Q:\pythonlearn\PythonTest\PostTest.py
+ReTest|Q:\pythonlearn\PythonTest\ReTest.py
+imgcatch|Q:\pythonlearn\PythonTest\imgcatch.py
 mysqlTest|Q:\pythonlearn\PythonTest\mysqlTest.py
+readmysql|Q:\pythonlearn\PythonTest\readmysql.py
+readpdf|Q:\pythonlearn\PythonTest\readpdf.py
+readtext|Q:\pythonlearn\PythonTest\readtext.py
 spider1|Q:\pythonlearn\PythonTest\spider1.py
+urllibTest|Q:\pythonlearn\PythonTest\urllibTest.py
 wiki|Q:\pythonlearn\PythonTest\wiki.py
